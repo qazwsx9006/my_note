@@ -17,6 +17,7 @@
 * $ curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.2.tar.gz
 * $ tar zxvf elasticsearch-5.0.2.tar.gz
 * $ cd elasticsearch-5.0.2
+
 ####安裝完畢後執行
 * $ ./bin/elasticsearch
 
@@ -24,9 +25,11 @@
 * $ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-5.0.2-darwin-x86_64.tar.gz
 * $ tar zxvf kibana-5.0.2-darwin-x86_64.tar.gz
 * $ cd kibana-5.0.2-darwin-x86_64
+
 ####安裝完畢後執行
 * $ ./bin/kibana
-可開啟 http://localhost:5601 查看 Kibana 頁面
+
+####可開啟 http://localhost:5601 查看 Kibana 頁面
 
 ##安裝 Fluentd(td-agent)
 有 多種下載方式，查看官方說明。(http://www.fluentd.org/download)
@@ -34,10 +37,13 @@
 
 ###安裝
 * $ gem install fluentd -v "~> 0.12.0" --no-ri --no-rdoc
+
 ####安裝完成後,建立config設定檔
 * $ fluentd --setup ./fluent
+
 ####執行
 * $ fluentd -c ./fluent/fluent.conf
+
 ####測試是否成功紀錄
 * $ echo '{"json":"message"}' | fluent-cat debug.test
 
@@ -84,6 +90,7 @@
 
 ##deb 安裝 fluentd (http://docs.fluentd.org/v0.12/articles/install-by-deb)
 * $ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent2.sh | sh
+
 ####開啟
 * $ sudo /etc/init.d/td-agent start
 
@@ -101,8 +108,7 @@
 ##連結 fluentd & elasticsearch
 * $ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch --no-document
 
-###fluentd 設定檔
-* $ sudo nano /etc/td-agent/td-agent.conf
+###fluentd 設定檔(/etc/td-agent/td-agent.conf)
 
     <match debug.**>
       @type stdout
