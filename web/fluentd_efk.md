@@ -5,7 +5,7 @@
 * $ mkdir fluentd
 * $ cd ./fluentd
 
-##確認 java版本 （Java for Elasticsearch, Java version is 8 or higher.）, 如果不是，就安裝信8以上的版本
+##確認 java版本 （Java for Elasticsearch, Java version is 8 or higher.）, 如果不是，就安裝8以上的版本
 * $ java -version
 
 ###
