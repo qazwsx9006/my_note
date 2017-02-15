@@ -15,14 +15,14 @@
 * $ curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.2.tar.gz
 * $ tar zxvf elasticsearch-5.0.2.tar.gz
 * $ cd elasticsearch-5.0.2
-安裝完畢後執行
+####安裝完畢後執行
 * $ ./bin/elasticsearch
 
 ##安裝 Kibana
 * $ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-5.0.2-darwin-x86_64.tar.gz
 * $ tar zxvf kibana-5.0.2-darwin-x86_64.tar.gz
 * $ cd kibana-5.0.2-darwin-x86_64
-安裝完畢後執行
+####安裝完畢後執行
 * $ ./bin/kibana
 可開啟 http://localhost:5601 查看 Kibana 頁面
 
@@ -32,11 +32,11 @@
 
 ###安裝
 * $ gem install fluentd -v "~> 0.12.0" --no-ri --no-rdoc
-安裝完成後,建立config設定檔
+####安裝完成後,建立config設定檔
 * $ fluentd --setup ./fluent
-# 執行
+####執行
 * $ fluentd -c ./fluent/fluent.conf
-# 測試是否成功紀錄
+####測試是否成功紀錄
 * $ echo '{"json":"message"}' | fluent-cat debug.test
 
 ##連結 fluentd & elasticsearch
@@ -70,19 +70,19 @@
       </store>
     </match>
 
-修改完成後，重啟 fluentd 即可。
+####修改完成後，重啟 fluentd 即可。
 
 
 
 #for ubuntu 16.04 (use nginx)
 
 ##確認 java版本 （Java for Elasticsearch, Java version is 8 or higher.）
-安裝 java 8
+####安裝 java 8
 * $ sudo apt-get -y install oracle-java8-installer
 
 ##deb 安裝 fluentd (http://docs.fluentd.org/v0.12/articles/install-by-deb)
 * $ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent2.sh | sh
-開啟
+####開啟
 * $ sudo /etc/init.d/td-agent start
 
 ##deb 安裝 elasticsearch
@@ -142,14 +142,14 @@
     }
 * $ sudo nginx service restart
 
-可開啟網頁查看資料了。
+####可開啟網頁查看資料了。
 
 
 ＊使用 ruby & rails 寫入資料 到 fluentd
 Gemfile 增加
 `gem 'fluent-logger', "~> 0.4.3"`
 
-執行寫入：
+####執行寫入：
     Fluent::Logger::FluentLogger.open(nil, :host=>'localhost', :port=>24224)
     Fluent::Logger.post("fluentd.test.follow", {"from"=>"mingyuok!!212", "to"=>"userB"})
 
@@ -158,8 +158,8 @@ Gemfile 增加
     auth_basic "Restricted Access";
     auth_basic_user_file /etc/nginx/.htpasswd;
 
-帳密設定檔儲存於 /etc/nginx/.htpasswd
-建立帳號密碼指令為：
+####帳密設定檔儲存於 /etc/nginx/.htpasswd
+####建立帳號密碼指令為：
 * $ sudo sh -c "echo -n 'USERNAME:' >> /etc/nginx/.htpasswd" #建立帳號。USERNAME 取代為使用者帳號。
 * $ sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd" #前述建立的帳號建立密碼。輸入指令後，會跳出輸入框輸入密碼。
 
